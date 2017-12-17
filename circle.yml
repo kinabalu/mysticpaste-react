@@ -1,0 +1,44 @@
+machine:
+  python:
+    version: 2.7.13
+  node:
+    version: 7.8.0
+  environment:
+    GOPATH: "${HOME}/${CIRCLE_PROJECT_REPONAME}/api"
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+
+dependencies:
+  override:
+    - yarn:
+        pwd:
+          client
+    - echo $GOPATH
+    - sudo add-apt-repository ppa:masterminds/glide -y
+    - sudo apt-get update
+    - sudo apt-get install glide -y
+    - glide install:
+        pwd:
+          api/src
+  cache_directories:
+    - "api/src/vendor"
+    - "client/node_modules"
+
+test:
+  override:
+    - yarn test:
+        pwd:
+          client
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - cd client && ./build.sh
+      - cd api/src && ./build.sh
+  production:
+    branch: production
+    commands:
+      - cd client && REACT_APP_ENV=production ./build.sh
+      - cd client && HOST_IP=50.116.29.145 ./deploy.sh
+      - cd api/src && ./build.sh
+      - cd api/src && HOST_IP=50.116.29.145 ./deploy.sh
