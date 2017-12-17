@@ -4,12 +4,12 @@ machine:
   # environment:
   #   PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
 
-# dependencies:
-#   override:
-#     - yarn
-#     - npm install netlify-cli
-#   cache_directories:
-#     - "client/node_modules"
+dependencies:
+  override:
+    - yarn
+    - yarn add netlify-cli
+  cache_directories:
+    - "client/node_modules"
 
 # test:
 #   override:
