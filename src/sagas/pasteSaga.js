@@ -1,6 +1,5 @@
 import {takeEvery, delay} from 'redux-saga';
 import {put, call} from 'redux-saga/effects';
-import { push } from 'react-router-redux';
 import {types} from '../ducks/pastes';
 import {types as authTypes} from '../ducks/auths';
 // import pasteApi from '../api/mockPasteApi';

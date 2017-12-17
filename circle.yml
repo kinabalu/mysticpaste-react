@@ -11,9 +11,9 @@ dependencies:
   cache_directories:
     - "client/node_modules"
 
-# test:
-#   override:
-#     - yarn test
+test:
+  override:
+    - yarn test
 
 deployment:
   master:

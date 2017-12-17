@@ -1,6 +1,7 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "mysticpaste-react",
+  "version": "0.9.0",
+  "homepage": "http://mysticpaste.com",  
   "private": true,
   "dependencies": {
     "axios": "0.15.2",
