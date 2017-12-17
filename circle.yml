@@ -1,19 +1,19 @@
 machine:
   node:
     version: 8.9.3
-  environment:
-    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+  # environment:
+  #   PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
 
-dependencies:
-  override:
-    - yarn
-    - npm install netlify-cli
-  cache_directories:
-    - "client/node_modules"
+# dependencies:
+#   override:
+#     - yarn
+#     - npm install netlify-cli
+#   cache_directories:
+#     - "client/node_modules"
 
-test:
-  override:
-    - yarn test
+# test:
+#   override:
+#     - yarn test
 
 deployment:
   master:
