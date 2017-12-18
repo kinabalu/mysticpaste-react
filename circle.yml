@@ -17,7 +17,7 @@ test:
 
 deployment:
   master:
-    branch: master
+    branch: develop
     commands:
       - yarn run build
   production:
